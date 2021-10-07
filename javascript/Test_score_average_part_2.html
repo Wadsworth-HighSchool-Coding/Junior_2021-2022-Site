@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Test_score_average_part_2</title>
+<script>
+	//Document object model (DOM)
+	function findAverage(){
+		//get all the values
+		var t1 = document.getElementById("score1").value;
+		var t2 = document.getElementById("score2").value;
+		var t3 = document.getElementById("score3").value;
+		//create variables for math
+		var avg, added;
+		if((checkValue(t1) || checkValue(t2) || checkValue(t3)) == false)
+		{
+			
+			//add the values, divide them by 3 then round them
+			added = eval(t1) + eval(t2) + eval(t3);
+			avg = added / 3;
+			avg = Math.round(100*avg)/100;
+			//display the average
+			document.getElementById("average").value = avg;
+		}
+	}
+	function checkValue(value){
+		if(value.length == 0)
+		{
+			var nan = "Plase fill in all box's" 
+			document.getElementById("average").value = nan;
+			return true;
+		}else{
+			return false;
+		}
+	}
+
+	
+</script>
+</head>
+
+<body>
+<p>
+  <label for="score1">first test score:</label>
+  <input type="text" name="score1" id="score1">
+</p>
+<p>
+  <label for="score2">second test score:</label>
+  <input type="text" name="score2" id="score2">
+</p>
+
+<p>
+  <label for="score3">third test score:</label>
+  <input type="text" name="score3" id="score3">
+</p>
+<hr>
+<label for="average">average score:</label>
+<input type="text" name="average" id="average">
+<p>
+	<input onClick="findAverage();" type="button" name="button" id ="button" value="get the average">
+</p>
+</body>
+</html>

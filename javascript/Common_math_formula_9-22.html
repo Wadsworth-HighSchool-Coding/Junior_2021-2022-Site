@@ -1,0 +1,152 @@
+<!doctype html>
+<!--Javascript Basics
+	with variables, equations,
+	prompts and alerts -->
+<html>
+<head>
+<meta charset="utf-8">
+<title>JavaScript Assignment 5</title>
+	<script>
+		//Goals:
+		/* (Define variables, use prompts, solve equation, use alert)
+			
+			Part 1:
+				Find the circumference of a circle, given a radius
+				
+			Part 2:
+				Find the surface area of a sphere
+			Part 3:
+				Find the volume of a cylinder
+			Bonus:
+				Find the area of a trapezoid
+		*/
+		//part 1
+		function circumference(){
+			let r = document.getElementById("radius").value;
+			if(checkValue(r) !== true){
+				let circumference;
+				circumference = Math.PI * (r*2);
+				circumference = Math.round(100*circumference)/100;
+				document.getElementById("circumference").value = circumference;
+			}
+			
+		}
+			
+		function surfaceAreaSphere(){
+			let r = document.getElementById("radius2").value;
+			if(checkValue(r) !== true){
+				let surfaceArea;
+				surfaceArea = 4 * Math.PI * (r*r);
+				surfaceArea = Math.round(100*surfaceArea)/100;
+				document.getElementById("surfaceArea").value = surfaceArea;
+			}
+		}
+
+		function volumeCylinder(){
+			let r = document.getElementById("radius3").value;
+			let h = document.getElementById("height").value;
+			if((checkValue(r) || checkValue(h)) !== true){
+				let volume;
+				volume = Math.PI * (r*r) * h;
+				volume = Math.round(100 * volume)/100;
+				document.getElementById("volumeCylinder").value = volume;
+			}
+
+		}
+
+		function areaTrap(){
+			let b1 = document.getElementById("base").value;
+			let b2 = document.getElementById("base2").value;
+			let h =  document.getElementById("height2").value;
+			if((checkValue(b1) || checkValue(b2) || checkValue(h)) !== true){
+				let area;
+				area = ((b1+b2)/2)*h;
+				document.getElementById("areaTrap").value = area;
+			}
+		}
+
+		function checkValue(value){
+		//checks the length of arg to see if it is zero
+		//if zero it will tell user to fill in box's and stop code from running in findSlope()
+			if(value.length === 0 || isNaN(value) === true)
+			{
+				alert("Please fill in all box's and input a number for each");
+				return true;
+			}else{
+				return false;
+			}
+		}
+	
+	</script>
+	<style>
+		*{
+			text-align: center;
+		}
+		.bold{
+			font-weight: bold;
+		}
+	</style>
+</head>
+
+<body>
+	<!--- circumference of a circle --->
+	<p>
+		<p class = "bold">Find the circumference of a circle</p>
+	  	<label for="radius">Radius:</label>
+	  	<input type="text" name="radius" id="radius">
+	<p>
+	<input onClick="circumference();" type="button" name="button" id ="button" value="find circumference">
+	</p>
+	<p>
+			<label for="circumference">circumference is:</label>
+	  	<input type="text" name="circumference" id="circumference">
+
+	</p>
+	<hr>
+	<p>
+		<p class = "bold">Find the surface area of a sphere</p>
+	  	<label for="radius2">Radius:</label>
+	  	<input type="text" name="radius2" id="radius2">
+	<p>
+	<input onClick="surfaceAreaSphere();" type="button" name="button2" id ="button2" value="find surface area">
+	</p>
+	<p>
+			<label for="surfaceArea">Surface area is:</label>
+	  	<input type="text" name="surfaceArea" id="surfaceArea">
+
+	</p>
+	<hr>
+	<p>
+		<p class = "bold">Find the volume of a cylinder</p>
+		<label for="radius3">Radius:</label>
+		<input type="text" name="radius3" id="radius3">
+		<label for="height">Height:</label>
+		<input type="text" name="height" id="height">
+	<p>
+	<input onClick="volumeCylinder();" type="button" name="button3" id ="button3" value="find volume">
+	</p>
+	<p>
+			<label for="volumeCylinder">surface area is:</label>
+		<input type="text" name="volumeCylinder" id="volumeCylinder">
+
+	</p>
+	<hr>
+	<p>
+		<p class = "bold">Find the volume of a cylinder</p>
+		<label for="base">First base:</label>
+		<input type="text" name="base" id="base">
+		<label for="base2">Second base:</label>
+		<input type="text" name="base2" id="base2">
+		<label for="height2">Height:</label>
+		<input type="text" name="height2" id="height2">
+	<p>
+	<input onClick="areaTrap();" type="button" name="button4" id ="button4" value="find area">
+	</p>
+	<p>
+			<label for="areaTrap">Area is:</label>
+			<input type="text" name="areaTrap" id="areaTrap">
+
+	</p>
+
+</body>
+</html>

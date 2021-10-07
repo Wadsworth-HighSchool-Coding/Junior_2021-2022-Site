@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>9-21_js_slope_assignment</title>
+	<script>
+		let slope,X1,X2,Y1,Y2,empty;
+		//if arg use is set to 1 it will display the slope if else then it will return the slope
+		function findSlope(use){
+			//get values from text box's
+			X1 = document.getElementById("x1").value;
+			Y1 = document.getElementById("y1").value;
+			X2 = document.getElementById("x2").value;
+			Y2 = document.getElementById("y2").value;
+			//variables used to store information for slope
+			let x,y;
+			//checks to make sure all box's are filled
+			//if any return true does not run code inside
+			if((checkValue(X1) || checkValue(Y1) || checkValue(X2) || checkValue(Y2)) === false){
+				//tells everything else that all values are imputed
+				empty = false;
+				//local math for slope
+				y = Y2-Y1;
+				x = X2-X1;
+				//checks if it is a vertical line
+					if(x === 0 ){
+						slope = 0;
+					}else {
+						//calculates slope
+						slope = y / x;
+					}
+					//checks to see if the call was to return the
+					//the slope value or to display it
+					if(use === 1){
+						document.getElementById("slope").value = slope;
+					}else{
+						return slope;
+					}
+			}else{
+				//tells everything else all values are not imputed
+				empty = true;
+			}
+		}
+		
+		function findLineEquation(){
+			//has to run find slope first to check if all values are imputed and to get slope
+			slope = findSlope(0);
+			if(empty !== true) {
+
+				//creating local var for math and to store equation
+				let b, equation;
+				//finding y intercept
+				b = Y1 - (slope * X1);
+				//checking if it positive, negative or zero
+				if (Math.sign(b) === 1 || Math.sign(b) === 0) {
+					equation = "y=" + slope + "x+" + b;
+				} else if (Math.sign(b) === -1) {
+					equation = "y=" + slope + "x" + b;
+				}
+				//displays the equation
+				document.getElementById("equation").value = equation;
+			}
+		}
+		
+		
+		function checkValue(value){
+		//checks the length of arg to see if it is zero
+		//if zero it will tell user to fill in box's and stop code from running in findSlope()
+			if(value.length === 0 || isNaN(value) === true)
+			{
+				alert("Please fill in all box's and input a number for each");
+				return true;
+			}else{
+				return false;
+			}
+		}
+	
+	
+	
+	</script>
+</head>
+
+<body>
+	<p>
+  <label for="x1">X1:</label>
+  <input type="text" name="x1" id="x1">
+
+  <label for="y1">Y1:</label>
+  <input type="text" name="y1" id="y1">
+</p>
+
+<p>
+  <label for="x2">X2:</label>
+  <input type="text" name="x2" id="x2">
+	
+	<label for="y2">Y2:</label>
+  <input type="text" name="y2" id="y2">
+</p>
+<hr>
+<p>
+	<input onClick="findSlope(1);" type="button" name="button" id ="button" value="Find slope">
+</p>
+<label for="slope">slope is:</label>
+<input type="text" name="slope" id="slope">
+<p>
+	<input onClick="findLineEquation();" type="button" name="button2" id ="button2" value="find y=mx+b">
+</p>
+	<label for="equation">equation is:</label>
+	<input type="text" name="equation" id="equation">
+</body>
+</html>

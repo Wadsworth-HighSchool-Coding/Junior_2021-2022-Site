@@ -1,0 +1,224 @@
+  <!doctype html>
+  <html>
+  <head>
+  <meta charset="utf-8">
+  <title>JavaScript_calculator-10-4</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+      <script>
+		 //focus user on text box
+		  $(document).ready(function(){
+  			$("input:text").focus();
+		  });	
+          var log=[];
+          var logNum = 0;
+          //creates the string as user clicks buttons
+          function calculator(value){
+              var previous;
+              currentDisplay = document.getElementById("display").value;
+              document.getElementById("display").value = currentDisplay + value;
+          }
+          //does the math for the entered string and outputs the result
+          function findResult(){
+              var currentDisplay = document.getElementById("display").value;
+
+              if(currentDisplay.includes("÷")) {
+                currentDisplay = currentDisplay.replaceAll("÷", "/");
+              }
+
+              if(currentDisplay !==(null || "")){
+                document.getElementById("display").value = eval(currentDisplay);
+                log.push(currentDisplay);
+                var logNum = 0;
+              }else{
+				   document.getElementById("display").value = 0;
+			  }
+          }
+          //clears the display
+          function clearDisplay(){
+            document.getElementById("display").value = null;
+          }
+          //takes what ever the string is does the math then squares it
+		  function pow(power){
+            var currentDisplay = document.getElementById("display").value;
+
+            if(currentDisplay.includes("÷")) {
+              currentDisplay = currentDisplay.replaceAll("÷", "/");
+            }
+
+            if(currentDisplay !==(null || "")){
+              document.getElementById("display").value = Math.pow(eval(currentDisplay),power);
+              log.push(currentDisplay);
+              logNum =0;
+            }else{
+              document.getElementById("display").value = 0;
+            }
+          }
+          //times string by pie
+          function pie(){
+            var currentDisplay = document.getElementById("display").value;
+
+            if(currentDisplay.includes("÷")) {
+              currentDisplay = currentDisplay.replaceAll("÷", "/");
+            }
+
+            if(currentDisplay !==(null || "")){
+              document.getElementById("display").value = (eval(currentDisplay)*Math.PI);
+              log.push(currentDisplay);
+              logNum =0;
+            }else{
+              document.getElementById("display").value = 0;
+            }
+          }
+          //takes square root of string
+          function squareRoot(){
+            var currentDisplay = document.getElementById("display").value;
+
+            if(currentDisplay.includes("÷")) {
+              currentDisplay = currentDisplay.replaceAll("÷", "/");
+            }
+
+            if(currentDisplay !==(null || "")){
+              document.getElementById("display").value = Math.sqrt(eval(currentDisplay));
+              log.push(currentDisplay);
+              logNum =0;
+            }else{
+              document.getElementById("display").value = 0;
+            }
+          }
+          //takes inverse of display string
+          function inverse(){
+            var currentDisplay = document.getElementById("display").value;
+
+            if(currentDisplay.includes("÷")) {
+              currentDisplay = currentDisplay.replaceAll("÷", "/");
+            }
+
+            if(currentDisplay !==(null || "")){
+              document.getElementById("display").value = "1/" + eval(currentDisplay);
+              log.push(currentDisplay);
+              logNum = 0;
+            }else{
+              document.getElementById("display").value = 0;
+            }
+          }
+         //keeps track of previous equations and lets you go though them
+          function dispLog(){
+            if(logNum>log.length-1){
+              logNum = 0;
+            }
+            if(log.length > 0) {
+              document.getElementById("display").value = log[logNum];
+              logNum++;
+            }
+          }
+          //rounds current text box value to nearest hundreth
+          function round(){
+            var currentDisplay = document.getElementById("display").value;
+
+            if(currentDisplay.includes("÷")) {
+              currentDisplay = currentDisplay.replaceAll("÷", "/");
+            }
+
+            if(currentDisplay !==(null || "")){
+              document.getElementById("display").value = Math.round(eval(currentDisplay)*100)/100;
+
+            }else{
+              document.getElementById("display").value = 0;
+            }
+          }
+          //clears log
+          function ClearHist(){
+            log = [];
+          }
+          //rick rolls user
+          function rick(){
+
+               window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
+
+          }
+          //removes last index in the currentDisplay string
+          function back(){
+            var currentDisplay = document.getElementById("display").value;
+            currentDisplay = currentDisplay.substring(0, currentDisplay.length - 1);
+            document.getElementById("display").value = currentDisplay;
+          }
+      </script>
+	  <style>
+			*{ 
+				zoom: 1.1; 
+			} 
+		  
+		  input[type = "button"]{
+			  	font-size: 30px;
+				width:100px;
+				border-radius:50%;
+		  }
+		  
+		  .displayStyle{
+			  text-align: right;
+			  font-size: 30px;
+			  border-radius: 10px;
+			  width: 600px;
+		  }
+		
+		  .center{
+			  text-align: center;
+		  }
+		  
+	  </style>
+  </head>
+
+  <body>
+      <table width="200" border="0" align="center">
+    <tbody>
+      <tr class="center">
+        <td colspan="6"><input type="text" name="display" id="display" class = "displayStyle"> </td>
+      </tr>
+      <tr>
+        <td> <input onClick = "dispLog();" type="button" name="button" id ="buttonLog" value="Log"></td>
+		<td> <input onClick = "inverse();" type="button" name="button" id ="buttonInv" value="Inv"></td>
+        <td> <input onClick = "calculator(this.value);" type="button" name="button" id ="button(" value="("></td>
+        <td> <input onClick = "calculator(this.value);" type="button" name="button" id ="button)" value=")"></td>
+        <td> <input onClick = "calculator(this.value);" type="button" name="button" id ="buttonRemainder" value="%"></td>
+        <td> <input onClick = "clearDisplay();" type="button" name="button" id ="buttonClear" value="C"></td>
+      </tr>
+      <tr>
+        <td><input onClick = "Round();" type="button" name="button" id ="buttonRound" value="round"></td>
+		<td><input onClick = "pie();" type="button" name="button" id ="buttonPI" value="&#960;"></td>
+        <td><input onClick = "calculator(this.value);" type="button" name="button" id ="button7" value="7"></td>
+        <td><input onClick = "calculator(this.value);" type="button" name="button" id ="button8" value="8"></td>
+        <td><input onClick = "calculator(this.value);" type="button" name="button" id ="button9" value="9"></td>
+        <td><input onClick = "calculator(this.value);" type="button" name="button" id ="buttonDivision" value="&#247;"></td>
+      </tr>
+      <tr>
+        <td><input onClick = "ClearHist()" type="button" name="button" id ="buttonClearHist" value="Hist C"></td>
+		<td><input onClick = "squareRoot()" type="button" name="button" id ="buttonRadical" value="&#8730;"></td>
+        <td><input onClick = "calculator(this.value);" type="button" name="button" id ="button4" value="4"></td>
+        <td><input onClick = "calculator(this.value);" type="button" name="button" id ="button5" value="5"></td>
+        <td><input onClick = "calculator(this.value);" type="button" name="button" id ="button6" value="6"></td>
+        <td><input onClick = "calculator(this.value);" type="button" name="button" id ="buttonMultiply" value="*"></td>
+
+      </tr>
+        <tr>
+          <td><input onClick = "rick();" type="button" name="button" id ="buttonRick" value="Rick"></td>
+		<td><input onClick = "pow(2);" type="button" name="button" id ="buttonX^2" value="X²"></td>
+        <td><input onClick = "calculator(this.value);" type="button" name="button" id ="button1" value="1"></td>
+        <td><input onClick = "calculator(this.value);" type="button" name="button" id ="button2" value="2"></td>
+        <td><input onClick = "calculator(this.value);" type="button" name="button" id ="button3" value="3"></td>
+        <td><input onClick = "calculator(this.value);" type="button" name="button" id ="buttonMinus" value="-"></td>
+
+      </tr>
+        <tr>
+          <td><input onClick = "back();" type="button" name="button" id ="buttonBack" value="Back"></td>
+		<td><input onClick = "pow(3);" type="button" name="button" id ="buttonX^3" value="X³"></td>
+        <td><input onClick = "calculator(this.value);" type="button" name="button" id ="button0" value="0"></td>
+        <td><input onClick = "calculator(this.value);" type="button" name="button" id ="buttonDecimal" value="."></td>
+        <td><input onClick = "findResult();" type="button" name="button" id ="buttonEquals" value="="></td>
+        <td><input onClick = "calculator(this.value);" type="button" name="button" id ="buttonAdd" value="+"></td>
+
+      </tr>
+    </tbody>
+  </table>
+
+  </body>
+  </html>

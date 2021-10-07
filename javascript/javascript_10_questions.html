@@ -1,0 +1,171 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>javascript_10_questions</title>
+	<script>
+		
+		var score = 0;
+		var num = [];
+		const answers = {
+			 q1:"c",
+			 q2:"wadsworth",
+			 q3:"NaN",
+			 q4:"adolf hitler", q4V2:"charles chaplin",
+			 q5:"joe biden",
+		 	 q6:"kamala harris",
+			 q7:"13",
+			 q8:"7 years",
+			 q9:"true",
+			 q10:"false",
+		};
+
+	function gradeQuiz(){
+		score = 0;
+		//get answers from user
+		var questions = {
+			q1:document.getElementById("question1").value,
+			q2:document.getElementById("question2").value,
+			q3:document.getElementById("question3").value,
+			q4:document.getElementById("question4").value,
+			q5:document.getElementById("question5").value,
+			q6:document.getElementById("question6").value,
+			q7:document.getElementById("question7").value,
+			q8:document.getElementById("question8").value,
+			q9:document.getElementById("question9").value,
+			q10:document.getElementById("question10").value,
+		};
+
+		if(questions.q1.toLowerCase() === answers.q1){
+			score+=1;
+		}
+		if(questions.q2.toLowerCase() === answers.q2){
+			score+=1;
+		}
+		if(questions.q3>=5 && questions.q3<=18){
+			score+=1;
+		}
+		if(questions.q4.toLowerCase() === (questions.q4V2 || answers.q4)){
+			score+=1;
+		}
+		if(questions.q5.toLowerCase() === answers.q5){
+			score+=1;
+		}
+		if(questions.q6.toLowerCase() === answers.q6){
+			score+=1;
+		}
+		if(questions.q7.toLowerCase() === answers.q7){
+			score+=1;
+		}
+		if(questions.q8.toLowerCase() === answers.q8){
+			score+=1;
+		}
+		if(questions.q9.toLowerCase() === answers.q9){
+			score+=1;
+		}
+		if(questions.q10.toLowerCase() === answers.q10){
+			score+=1;
+		}
+
+		document.getElementById("ansCorrect").value = score + "/10";
+		score = 0;
+
+	}
+
+	
+	</script>
+	<style>
+		*{
+			margin-top:0;
+		}
+		body{
+			text-align: center;
+			
+		}
+		input{
+			border-radius: 15px;
+			padding: 5px;
+			margin: 1;
+		}
+		#topDiv{
+			background-color: lightgreen;
+			margin: 0;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="topDiv">
+		<h1>Random Quiz</h1>
+		<hr>
+	</div>
+
+		<p>
+		  <label for="question1">1)What is the 4th letter of the alphabet:</label>
+	</p>
+	<p>
+		  <input type="text" name="question1" id="question1">
+	</p>
+		<p>
+		  <label for="question2">2)What city does the blue tip pirade occur in:</label>
+	</p>
+		<p>
+		  <input type="text" name="question2" id="question2">
+	</p>
+		<p>
+		  <label for="question3">3)What is a number between 5 and 18:<br>
+		  </label>
+		  <input type="text" name="question3" id="question3">
+	</p>
+		<p>
+		  <label for="question4">4)Who was a important figure born in 1889(first and last name):</label>
+	</p>
+	<p>
+	  <input type="text" name="question4" id="question4">
+	</p>
+	<p>
+		 <label for="question5">5)Who is the current president of the United States(first and last name):</label>
+	</p>
+	<p>
+	 	<input type="text" name="question5" id="question5">
+	</p>
+	<p>
+		 <label for="question6">6)Who is the vice president of the United States(first and last name):</label>
+	</p>
+	<p>
+		 <input type="text" name="question6" id="question6">
+	</p>
+	<p>
+		<label for="question7">7)What is 5+8 equal:<br>
+		</label>
+		<input type="text" name="question7" id="question7">
+	</p>
+	<p>
+		<label for="question8">8)How many years until 2028(example: 5 years):</label>
+	</p>
+	<p>
+	  	<input type="text" name="question8" id="question8">
+	</p>
+	<p>
+		<label for="question9">9)True or false, is this a correct syntax in javascript; score+=1; :</label>
+	</p>
+	<p>
+		 <input type="text" name="question9" id="question9">
+	</p>
+	<p>
+		<label for="question10">10)True or false, javascript is similar to java in terms of difficulty:<br>
+		 </label>
+		 <input type="text" name="question10" id="question10">
+		<br>
+		
+		<p>
+		  <input onClick = "gradeQuiz();" type="button" name="button" id ="button" value="check anwsers">
+		</p>
+	</p>
+	<p>
+		 <label for="ansCorrect">Answers correct:</label>
+		 <input type="text" name="ansCorrect" id="ansCorrect">
+	</p>
+
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Quiz</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+<style>hr {
+  width:800px;
+  margin-left: 0;
+}</style>
+<script>
+	//cool thing with jquery
+	//click the tables to hide them for 2 seconds
+	$(document).ready(function(){
+	  $("table").click(function(){
+		$(this).hide(1000);
+		setTimeout(show, 2000);
+	  });
+	});
+	//shows tables after 2 sec of being hidden 
+	function show(){
+		$("table").show();
+	}
+	//end of cool thing
+</script>
+	<h1 align="right" id="hide">Right Justified Heading 1</h1>
+	<table border="1" style="background-color:red;width:800px;">
+		<caption>table caption, border 1, width 800px, background color red</caption>
+		<tr>
+			<th>table heading</th>
+			<th>table heading</th>
+		</tr>
+		<tr>
+			<td>table data</td>
+			<td>table data</td>
+		</tr>
+	</table>
+	<p>paragraph, with 3 horizontal lines to follow<br> each line has the same width as the table<p>
+	<hr></hr>
+	<hr></hr>
+	<hr></hr>
+	<blockquote>
+		&ldquo;Indenting a qoute here,&ldquo; (just like with Dave's Devil Sticks)
+	</blockquote>
+	<p>Demonstrate column spand and rowspan, border 10, width 800, height 200</p>
+	<table border="10" width="800" height="200">
+		<tr>
+			<th rowspan="2" style="background-color:LightPink;">1</th>
+			<th>2</th>
+			<th>3</th>
+			<th>4</th>
+		</tr>
+		<tr>
+			<td>2</td>
+			<td colspan="2" style="background-color:gray;">3</td>	
+		</tr>
+	</table>
+	<br>
+	<img src = "awesome_cat.jpg" width="80" height="40"></img>
+	<p>
+	<a href="https://www.w3schools.com/tags/tag_blockquote.asp">First Review Handout</a>
+	</p>
+	<ul>
+	  <li>item 1</li>
+	  <li>item 2</li>
+	  <li>item 3</li>
+		<ol>
+		  <li>item a </li>
+		  <li>item b</li>
+		  <li>item c</li>
+		</ol>
+	</ul>
+</body>
+</html>

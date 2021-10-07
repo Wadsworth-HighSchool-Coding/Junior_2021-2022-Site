@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>9-27_notes</title>
+	<script>
+		var counter = 0;
+		/*
+		var = r=2;
+		var Area
+		Area = Math.PI * Math.pow(r,2); 
+		*/
+		function checkAnwser(){
+			Ans1 = "wadsworth";
+			Ans1b = "copley";
+			var userAns1 = document.getElementById("city").value;
+			if((Ans1 || Ans1b) === userAns1.toLowerCase()){
+				alert("correct");
+			}else{
+				alert("wrong");
+			}
+		}
+		function checkAnwserV2(){
+			//Question1
+			var userAns1 = document.getElementById("city").value;
+			if(userAns1.toLowerCase() === "wadsworth"){
+				counter+=1;
+				
+			}
+			//Question2
+			
+			//post score
+			document.getElementById("response").value = counter;
+			//reset counter
+			counter = 0;
+		}
+	
+	</script>
+</head>
+
+<body>
+	<p>
+	  <label for="city">1.Name of current city:</label>
+	  <input type="text" name="city" id="city">
+	  <br>
+	  
+	  <input onClick = "checkAnwserV2();" type="button" name="button" id ="button" value="check anwsers">
+</p>
+	<p>
+	  <label for="response">counter:</label>
+      <input type="text" name="response" id="response">
+	</p>
+	
+</body>
+</html>
