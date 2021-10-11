@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>over 50</title>
+    <script>
+
+        function check50() {
+
+            let value = document.getElementById("textBox1").value;
+
+            if (value.length === 0 || isNaN(value) === true) {
+                let message = "Please fill in all box's and input a number for each";
+                alert(message);
+                return true;
+            } else {
+
+                if (value > 50) {
+                    document.getElementById("output").value = "over 50";
+                }
+                if (value <= 50) {
+                    document.getElementById("output").value = "test failed";
+                }
+
+            }
+        }
+    </script>
+</head>
+<body>
+<label for="textBox1">Number to check if over 50:</label>
+<input type="text" name="textBox1" id ="textBox1">
+<br>
+<input onclick="check50()" type="button" name="button1" id="button1" value="Check Number">
+<br>
+<label for="output">result:</label>
+<input type="text" name="output" id ="output">
+</body>
+</html>
