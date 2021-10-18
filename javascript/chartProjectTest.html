@@ -6,6 +6,7 @@
 <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
 
 <script>
+    var hasRan=false;
     var xValues = [];
     var yValues = [];
     //generateData("x * x + 7", -10, 10, 1);
@@ -43,11 +44,23 @@
     }
     function  getDataAndGraph()
     {
-        var equation = document.getElementById("Equ");
-        var xLow = document.getElementById("xLow");
-        var xHigh = document.getElementById("xHigh");
-        var xScale = document.getElementById("xScale");
+        if(hasRan === true)
+        {
+            alert("ran")
+            var canvas = document.getElementById('myChart');
+            var context = canvas.getContext('2d');
+            context.clearRect(0, 0, canvas.width, canvas.height);
+        }
+        hasRan = true;
+        var equation = document.getElementById("Equ").value;
+        var xLow = document.getElementById("xLow").value;
+        var xHigh = document.getElementById("xHigh").value;
+        var xScale = document.getElementById("xScale").value;
         //generateData("x * x + 7", -10, 10, 1);
+        if(equation.includes("="))
+        {
+            equation = equation.split("=").pop();
+        }
         generateData(equation, parseInt(xLow), parseInt(xHigh), parseInt(xScale));
         makeTheChart();
     }
