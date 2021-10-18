@@ -1,16 +1,33 @@
 <!DOCTYPE html>
 <html>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
-<body>
+<body onload="UpdateGraph()">
 
 <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
 
 <script>
+    var equation;
+    function UpdateGraph()
+    {
+        var slider = document.getElementById("pointR");
+        var output = document.getElementById("pointRValue");
+        var fill = document.getElementById("fill").value;
+        output.innerHTML = slider.value;
+        if(fill == "On")
+        {
+            fill = true;
+        }else{
+            fill = false;
+        }
+        if(hasRan == true){
+            makeTheChart(equation,slider.value,fill);
+        }
+    }
     var hasRan=false;
     var xValues = [];
     var yValues = [];
     //generateData("x * x + 7", -10, 10, 1);
-    function makeTheChart()
+    function makeTheChart(equation,pointR,fill)
     {
 
         new Chart("myChart", {
@@ -18,9 +35,9 @@
             data: {
                 labels: xValues,
                 datasets: [{
-                    fill: true,
-                    pointRadius: 5,
-                    borderColor: "rgba(26,255,0,0.5)",
+                    fill: fill,//fills in the area under the line or "within"
+                    pointRadius: pointR,//how big each point ploted is
+                    borderColor: "rgba(26,255,0,0.5)",//color of line
                     data: yValues
                 }]
             },
@@ -28,7 +45,7 @@
                 legend: {display: false},
                 title: {
                     display: true,
-                    text: "y = x * x + 7",
+                    text: equation,
                     fontSize: 16
                 }
             }
@@ -44,9 +61,7 @@
     }
     function  getDataAndGraph()
     {
-
-
-        var equation = document.getElementById("Equ").value;
+        equation = document.getElementById("Equ").value;
         var xLow = document.getElementById("xLow").value;
         var xHigh = document.getElementById("xHigh").value;
         var xScale = document.getElementById("xScale").value;
@@ -55,16 +70,34 @@
         {
             equation = equation.split("=").pop();
         }
+        if(hasRan == true)
+        {
+            //It took me like an hour to realize the data was all being stored in the arrays
+            //I though it was something special with chart.js
+            xValues = [];
+            yValues = [];
+        }
+        hasRan = true;
         generateData(equation, parseInt(xLow), parseInt(xHigh), parseInt(xScale));
-        makeTheChart();
+        makeTheChart(equation,3);
     }
-
-    function reset()
-    {
-        window.location.reload();
-    }
-
 </script>
+<style>
+    .slider{
+        width: 200px;
+        height: 25px;
+    }
+</style>
+<div class="slider">
+    <label for="pointR">Point Radius:<span id = "pointRValue"></span></label>
+        <input onchange="UpdateGraph()" type="range" min="1" max="5" value="3" class="slider" id="pointR">
+</div>
+<br>
+<label for="fill">Fill On/off:</label>
+<select onchange="UpdateGraph()" id="fill">
+    <option value="On">On</option>
+    <option value="Off">Off</option>
+</select>
 <br>
 <label for="Equ">Equation:</label>
 <input type="text" name="Equ" id="Equ">
@@ -79,6 +112,5 @@
 <input type="xScale" name="xScale" id="xScale">
 <br>
 <input onClick="getDataAndGraph();" type="button" name="button1" id ="button1" value="Call Chart">
-<input onClick="reset();" type="button" name="button2" id ="button2" value="Rest">
 </body>
 </html>
