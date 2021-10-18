@@ -44,11 +44,8 @@
     }
     function  getDataAndGraph()
     {
-        if(hasRan == true)
-        {
 
-        }
-        hasRan = true;
+
         var equation = document.getElementById("Equ").value;
         var xLow = document.getElementById("xLow").value;
         var xHigh = document.getElementById("xHigh").value;
@@ -62,7 +59,10 @@
         makeTheChart();
     }
 
-
+    function reset()
+    {
+        window.location.reload();
+    }
 
 </script>
 <br>
@@ -79,5 +79,6 @@
 <input type="xScale" name="xScale" id="xScale">
 <br>
 <input onClick="getDataAndGraph();" type="button" name="button1" id ="button1" value="Call Chart">
+<input onClick="reset();" type="button" name="button2" id ="button2" value="Rest">
 </body>
 </html>
