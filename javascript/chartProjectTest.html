@@ -8,35 +8,66 @@
 <script>
     var xValues = [];
     var yValues = [];
-    generateData("x * 2 + 7", 0, 10, 0.5);
+    //generateData("x * x + 7", -10, 10, 1);
+    function makeTheChart()
+    {
 
-    new Chart("myChart", {
-        type: "line",
-        data: {
-            labels: xValues,
-            datasets: [{
-                fill: false,
-                pointRadius: 1,
-                borderColor: "rgba(255,0,0,0.5)",
-                data: yValues
-            }]
-        },
-        options: {
-            legend: {display: false},
-            title: {
-                display: true,
-                text: "y = x * 2 + 7",
-                fontSize: 16
+        new Chart("myChart", {
+            type: "line",
+            data: {
+                labels: xValues,
+                datasets: [{
+                    fill: true,
+                    pointRadius: 5,
+                    borderColor: "rgba(26,255,0,0.5)",
+                    data: yValues
+                }]
+            },
+            options: {
+                legend: {display: false},
+                title: {
+                    display: true,
+                    text: "y = x * x + 7",
+                    fontSize: 16
+                }
             }
-        }
-    });
-    function generateData(value, i1, i2, step = 1) {
+        });
+    }
+    function generateData(value, i1, i2, step) {
+
         for (let x = i1; x <= i2; x += step) {
             yValues.push(eval(value));
             xValues.push(x);
         }
-    }
-</script>
 
+    }
+    function  getDataAndGraph()
+    {
+        var equation = document.getElementById("Equ");
+        var xLow = document.getElementById("xLow");
+        var xHigh = document.getElementById("xHigh");
+        var xScale = document.getElementById("xScale");
+        //generateData("x * x + 7", -10, 10, 1);
+        generateData(equation, parseInt(xLow), parseInt(xHigh), parseInt(xScale));
+        makeTheChart();
+    }
+
+
+
+</script>
+<br>
+<label for="Equ">Equation:</label>
+<input type="text" name="Equ" id="Equ">
+<br>
+<label for="xLow">LowerX:</label>
+<input type="xLow" name="xLow" id="xLow">
+<br>
+<label for="xHigh">UpperX:</label>
+<input type="xHigh" name="xHigh" id="xHigh">
+<br>
+<label for="xScale">xScale:</label>
+<input type="xScale" name="xScale" id="xScale">
+<br>
+<input onClick="getDataAndGraph();" type="button" name="button1" id ="button1" value="Call Chart">
 </body>
 </html>
