@@ -6,29 +6,43 @@
 <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
 
 <script>
-    var equation;
-    function UpdateGraph()
-    {
-        var slider = document.getElementById("pointR");
-        var output = document.getElementById("pointRValue");
-        var fill = document.getElementById("fill").value;
-        output.innerHTML = slider.value;
-        if(fill == "On")
-        {
-            fill = true;
-        }else{
-            fill = false;
-        }
-        if(hasRan == true){
-            makeTheChart(equation,slider.value,fill);
-        }
-    }
-    var hasRan=false;
+    var hasRan = false;
     var xValues = [];
     var yValues = [];
+    var equation;
+    var r = 255, g = 0, b = 0;
+    var rgb = "rgba(255,0,0,0.5)"
+
+    function UpdateGraph() {
+
+        var pointR = document.getElementById("pointR");
+        var output = document.getElementById("pointRValue");
+        var fill = document.getElementById("fill").value;
+        var color = document.getElementById("color").value;
+        output.innerHTML = pointR.value;
+        if (fill == "On") {
+            fill = true;
+        } else {
+            fill = false;
+        }
+        switch (color) {
+            case "red":
+                rgb = "rgba(255,0,0,0.5)"
+                break;
+            case "green":
+                rgb = "rgba(0,255,0,0.5)"
+                break;
+            case "blue":
+                rgb = "rgba(0,0,255,0.5)"
+                break;
+        }
+        if (hasRan == true) {
+            makeTheChart(equation, pointR.value, fill, r, g, b);
+        }
+    }
+
     //generateData("x * x + 7", -10, 10, 1);
-    function makeTheChart(equation,pointR,fill)
-    {
+    function makeTheChart(equation, pointR, fill) {
 
         new Chart("myChart", {
             type: "line",
@@ -37,7 +51,7 @@
                 datasets: [{
                     fill: fill,//fills in the area under the line or "within"
                     pointRadius: pointR,//how big each point ploted is
-                    borderColor: "rgba(26,255,0,0.5)",//color of line
+                    borderColor: rgb,//color of line
                     data: yValues
                 }]
             },
@@ -51,6 +65,7 @@
             }
         });
     }
+
     function generateData(value, i1, i2, step) {
 
         for (let x = i1; x <= i2; x += step) {
@@ -59,58 +74,64 @@
         }
 
     }
-    function  getDataAndGraph()
-    {
+
+    function getDataAndGraph() {
         equation = document.getElementById("Equ").value;
         var xLow = document.getElementById("xLow").value;
         var xHigh = document.getElementById("xHigh").value;
         var xScale = document.getElementById("xScale").value;
-        //generateData("x * x + 7", -10, 10, 1);
-        if(equation.includes("="))
-        {
+
+        if (equation.includes("=")) {
             equation = equation.split("=").pop();
         }
-        if(hasRan == true)
-        {
+        if (hasRan == true) {
             //It took me like an hour to realize the data was all being stored in the arrays
             //I though it was something special with chart.js
             xValues = [];
             yValues = [];
+        } else {
+            hasRan = true;
         }
-        hasRan = true;
         generateData(equation, eval(xLow), eval(xHigh), eval(xScale));
-        makeTheChart(equation,3);
+        makeTheChart(equation, 3);
     }
 </script>
 <style>
-    .slider{
+    .slider {
         width: 200px;
         height: 25px;
     }
 </style>
 <div class="slider">
-    <label for="pointR">Point Radius:<span id = "pointRValue"></span></label>
-        <input onchange="UpdateGraph()" type="range" min="1" max="5" value="3" class="slider" id="pointR">
+    <label for="pointR">Point Radius:<span id="pointRValue"></span></label>
+    <input class="slider" id="pointR" max="5" min="1" onchange="UpdateGraph()" type="range" value="3">
 </div>
 <br>
 <label for="fill">Fill On/off:</label>
-<select onchange="UpdateGraph()" id="fill">
+<select id="fill" onchange="UpdateGraph()">
     <option value="On">On</option>
     <option value="Off">Off</option>
 </select>
 <br>
+<label for="color">Line Color:</label>
+<select id="color" onchange="UpdateGraph()">
+    <option value="red">Red</option>
+    <option value="green">Green</option>
+    <option value="blue">Blue</option>
+</select>
+<br>
 <label for="Equ">Equation:</label>
-<input type="text" name="Equ" id="Equ">
+<input id="Equ" name="Equ" type="text">
 <br>
 <label for="xLow">LowerX:</label>
-<input type="xLow" name="xLow" id="xLow">
+<input id="xLow" name="xLow" type="xLow">
 <br>
 <label for="xHigh">UpperX:</label>
-<input type="xHigh" name="xHigh" id="xHigh">
+<input id="xHigh" name="xHigh" type="xHigh">
 <br>
 <label for="xScale">xScale:</label>
-<input type="xScale" name="xScale" id="xScale">
+<input id="xScale" name="xScale" type="xScale">
 <br>
-<input onClick="getDataAndGraph();" type="button" name="button1" id ="button1" value="Call Chart">
+<input id="button1" name="button1" onClick="getDataAndGraph();" type="button" value="Call Chart">
 </body>
 </html>
