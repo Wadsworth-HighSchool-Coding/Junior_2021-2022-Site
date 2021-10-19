@@ -78,7 +78,7 @@
             yValues = [];
         }
         hasRan = true;
-        generateData(equation, parseInt(xLow), parseInt(xHigh), parseInt(xScale));
+        generateData(equation, eval(xLow), eval(xHigh), eval(xScale));
         makeTheChart(equation,3);
     }
 </script>
