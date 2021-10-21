@@ -1,0 +1,63 @@
+<!doctype html>
+<!--Open Notes Test-->
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>JavaScript Test 1</title>
+  <script>
+    /*
+    finding the volume of a right cone
+    */
+    function usingPrompts()
+    {
+      alert("Lets find volume using prompts and an alert");
+      var radius = prompt("What is the radius of the cone");
+      var height = prompt("What is the height of the cone");
+      var volume = Math.PI*Math.pow(radius,2)*(height/3);
+      volume = Math.round(volume*100)/100;
+      alert("The volume of the pyramid is: "+volume);
+    }
+    function usingTheDOM()
+    {
+      //use getElementById
+      var radius = document.getElementById("r1").value;
+      var height = document.getElementById("h1").value;
+      var volume = Math.PI*Math.pow(radius,2)*(height/3);
+      volume = Math.round(volume*100)/100;
+      document.getElementById("v1").value = volume;
+    }
+  </script>
+  <style>
+    *{
+      text-align: center;
+    }
+
+  </style>
+</head>
+<body>
+<p>Directions:  Complete the script for this page</p>
+<h1>Right Circular Cone Volume!</h1>
+<h1><img src="RightCone.jpg" width="427" height="250" alt=""/></h1>
+<h1>Using Prompts</h1>
+<p>
+  <input onclick="usingPrompts()" type="button" name="button" id="button" value="find volume using prompts and an alert">
+</p>
+<p>&nbsp; </p>
+<h1>Using the DOM</h1>
+<p>radius
+  <label for="r1">:</label>
+  <input type="text" name="r1" id="r1">
+</p>
+<p>height
+  <label for="h1">:</label>
+  <input type="text" name="h1" id="h1">
+</p>
+<p>
+  <input onclick="usingTheDOM()" type="button" name="button2" id="button2" value="find the volume">
+</p>
+<p>volume
+  <label for="v1">:</label>
+  <input type="text" name="v1" id="v1">
+</p>
+</body>
+</html>
