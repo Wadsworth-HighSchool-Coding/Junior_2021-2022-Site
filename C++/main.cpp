@@ -20,10 +20,10 @@ int main()
 */
 //lesson 3-----------------------------------------------
     //findSizeArray();
-    //avgAnyNumTestScores();
+    avgAnyNumTestScores();
     //std::cin.get();
 //lesson 4--------------------------------------------------
-    findNumInArray();
+    //findNumInArray();
 
 //assignment2-----------------------------------------
 //greaterThanArray();
