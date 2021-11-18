@@ -47,7 +47,6 @@ void greaterThanArray(){
     }
   }
 
-  //puts array in order from least to greatest
   
   //displays all of the items in array
   std::cout<<"\nSo all of the values are: \n"<<std::endl;

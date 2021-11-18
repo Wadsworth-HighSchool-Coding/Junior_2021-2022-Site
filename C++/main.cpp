@@ -6,6 +6,7 @@
 #include "assignment1.h"
 #include "assignment2.h"
 #include "least-to-greatest.h"
+#include "assignment3.h"
 int main()
 {
 //lesson 1--------------------------------------------------
@@ -20,7 +21,7 @@ int main()
 */
 //lesson 3-----------------------------------------------
     //findSizeArray();
-    avgAnyNumTestScores();
+    //avgAnyNumTestScores();
     //std::cin.get();
 //lesson 4--------------------------------------------------
     //findNumInArray();
@@ -29,6 +30,9 @@ int main()
 //greaterThanArray();
     //int array[] = {4,6,3,2,1};
     //leastToGreat(array,5);
+
+//assignment3
+    andArraySort();
 //funstuff ------------------------------------------------------
 /*
   char name[8] = "braden";
