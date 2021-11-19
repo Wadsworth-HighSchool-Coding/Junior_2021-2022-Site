@@ -7,6 +7,7 @@
 #include "assignment2.h"
 #include "least-to-greatest.h"
 #include "assignment3.h"
+#include "Test1StudentCopy.h"
 int main()
 {
 //lesson 1--------------------------------------------------
@@ -32,6 +33,9 @@ int main()
 
 //assignment3
     //andArraySort();
+
+//Test 1
+    findSumAverageMaxMinFromFile();
 //funstuff ------------------------------------------------------
 // int array[] = {4,6,3,2,1};
 // leastToGreat(array,5);
