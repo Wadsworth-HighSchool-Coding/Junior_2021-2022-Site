@@ -28,12 +28,13 @@ int main()
 
 //assignment2-----------------------------------------
 //greaterThanArray();
-    //int array[] = {4,6,3,2,1};
-    //leastToGreat(array,5);
+
 
 //assignment3
-    andArraySort();
+    //andArraySort();
 //funstuff ------------------------------------------------------
+// int array[] = {4,6,3,2,1};
+// leastToGreat(array,5);
 /*
   char name[8] = "braden";
 
