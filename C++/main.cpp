@@ -45,9 +45,9 @@ int main()
 //exam 1
     addArrayNumbers();
 
-    float r = 5;
-    float area = findAreaCircle(r);
-    std::cout<<"The area of the cirlce is: "<<area<<std::endl;
+    float radius = 5;
+    float area = findAreaCircle(radius);
+    std::cout<<"The area of the circle is: "<<area<<std::endl;
 
     int randomNum = genRandomNum();
     std::cout<<"random Num is: "<<randomNum<<std::endl;
