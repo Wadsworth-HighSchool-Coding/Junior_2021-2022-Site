@@ -9,6 +9,8 @@
 #include "assignment3.h"
 #include "Test1StudentCopy.h"
 #include "GuessingGame.h"
+#include "exam.h"
+
 int main()
 {
 //lesson 1--------------------------------------------------
@@ -38,7 +40,19 @@ int main()
 //Test 1
     //findSumAverageMaxMinFromFile();
 //guessing game
-   guessingGame();
+   //guessingGame();
+
+//exam 1
+    addArrayNumbers();
+
+    float r = 5;
+    float area = findAreaCircle(r);
+    std::cout<<"The area of the cirlce is: "<<area<<std::endl;
+
+    int randomNum = genRandomNum();
+    std::cout<<"random Num is: "<<randomNum<<std::endl;
+
+    whileLoopTest();
 //funstuff ------------------------------------------------------
 // int array[] = {4,6,3,2,1};
 // leastToGreat(array,5);
