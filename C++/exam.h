@@ -27,7 +27,7 @@ int genRandomNum(void){
 
 void whileLoopTest(void){
     short unsigned int input = 0;
-    std::cout<<"Enter a number 1 though 10: "<<std::endl;
+    std::cout<<"Enter a number above 100: "<<std::endl;
     while(input<=100){
      std::cin>>input;
      if(input<=100){std::cout<<"try again"<<std::endl;}
