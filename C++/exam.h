@@ -32,4 +32,5 @@ void whileLoopTest(void){
      std::cin>>input;
      if(input<=100){std::cout<<"try again"<<std::endl;}
     }
+    std::cout<<"correct"<<std::endl;
 }
