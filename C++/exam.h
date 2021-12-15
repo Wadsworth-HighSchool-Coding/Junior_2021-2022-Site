@@ -26,11 +26,10 @@ int genRandomNum(void){
 }
 
 void whileLoopTest(void){
-    short unsigned int random = genRandomNum();
-    short unsigned int input;
+    short unsigned int input = 0;
     std::cout<<"Enter a number 1 though 10: "<<std::endl;
-    while(random!=input){
+    while(input<=100){
      std::cin>>input;
-     if(input!=random){std::cout<<"Try again: "<<std::endl;}
+     if(input<=100){std::cout<<"try again"<<std::endl;}
     }
 }
