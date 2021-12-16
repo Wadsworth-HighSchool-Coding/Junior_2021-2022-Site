@@ -43,15 +43,19 @@ int main()
    //guessingGame();
 
 //exam 1
+    std::cout<<"---Part 1---"<<std::endl;
     addArrayNumbers();
 
+    std::cout<<"---Part 2---"<<std::endl;
     float radius = 5;
     float area = findAreaCircle(radius);
     std::cout<<"The area of the circle is: "<<area<<std::endl;
 
+    std::cout<<"---Part 3---"<<std::endl;
     int randomNum = genRandomNum();
     std::cout<<"random Num is: "<<randomNum<<std::endl;
 
+    std::cout<<"---Part 4---"<<std::endl;
     whileLoopTest();
 //funstuff ------------------------------------------------------
 // int array[] = {4,6,3,2,1};

@@ -9,7 +9,7 @@
 #endif //C___EXAM_H
 
 void addArrayNumbers(void){
-    int myNumbers[] = {1,2,3,6,4,3,2,6,7,5,4,3,3,5,6,8,8};
+    int myNumbers[] = {2,4,6,8,10,12,14,16,18,20,22,24,26,28,30};
     int size = sizeof(myNumbers) / sizeof(myNumbers[0]);
     int total = 0;
     for(int i = 0; i<size; i++){total += myNumbers[i];}
@@ -22,7 +22,7 @@ float findAreaCircle(float r){
 
 int genRandomNum(void){
     srand(time(0));
-    return (rand() % 10+1);
+    return (rand() % 100+1);
 }
 
 void whileLoopTest(void){
