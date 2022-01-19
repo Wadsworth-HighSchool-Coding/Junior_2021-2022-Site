@@ -45,6 +45,7 @@ if ($queryActor = $conn->query($queryString2)) {
         echo "<caption>There are $queryActor->num_rows results</caption>";
         echo "<th>";
         echo "film id" . "</th><th>" . "Title" . "</th><th>" . "Description" . "</th><th>" . "release year" . "</th><th>" . "language id" . "</th><th>" . "original language id" . "</th><th>" . "rental duration" . "</th><th>" . "Rental rate" . "</th><th>" . "length" . "</th><th>" . "Replacement cost" . "</th><th>" . "Rating" . "</th><th>" . "Special features" . "</th><th>" . "Last update" . "</th>";
+        echo "film id" . "</th><th>" . "Title" . "</th><th>" . "Description" . "</th><th>" . "release year" . "</th><th>" . "language id" . "</th><th>" . "original language id" . "</th><th>" . "rental duration" . "</th><th>" . "Rental rate" . "</th><th>" . "length" . "</th><th>" . "Replacement cost" . "</th><th>" . "Rating" . "</th><th>" . "Special features" . "</th><th>" . "Last update" . "</th>";
         echo "</th>";
         while ($rows = $queryActor->fetch_assoc()) {
             echo "<tr>";
