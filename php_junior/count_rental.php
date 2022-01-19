@@ -34,20 +34,19 @@ if ($conn == false) {
     die('connection failed:' . mysqli_connect_error);
 }
 
-$queryStringCount = "SELECT SUM(film.rental_rate) FROM table_name WHERE film.rental_rate>2.99";
+$queryStringCount = "SELECT SUM(film.rental_rate) as count FROM film WHERE film.rental_rate>2.99";
 if ($result = $conn->query($queryStringCount)) {
     if($result->num_rows < 1){
         echo "No Results";
     }else {
         echo "<table border='1'>";
-        echo "<caption>Min</caption>";
         echo "<th>";
         echo "Sum of Rental over 2.99" . "</th>";
         echo "</th>";
         while ($rows = $result->fetch_assoc()) {
             echo "<tr>";
             echo "<td>";
-            echo "{$rows['rental_rate']}" . "</td>";
+            echo "{$rows['count']}" . "</td>";
             echo "</td>";
             echo "</tr>";
         }
