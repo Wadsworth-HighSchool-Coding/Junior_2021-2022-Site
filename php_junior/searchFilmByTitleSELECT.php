@@ -57,6 +57,7 @@ if ($queryActor = $conn->query($queryString2)) {
         echo "</table>";
     }
 }
+$conn->close();
 ?>
 </body>
 </html>

@@ -41,7 +41,11 @@ if ($queryActor = $conn->query($queryString2)) {
         }
         echo "</table>";
     }
+
 }
+
+//ends connection to database
+$conn->close();
 ?>
 </body>
 </html>
