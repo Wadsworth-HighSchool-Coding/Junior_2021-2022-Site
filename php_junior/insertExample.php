@@ -6,6 +6,11 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>insert</title>
+    <style>
+        h2 {
+            color: Red;
+        }
+    </style>
 </head>
 <body>
 <h1>Insert student data</h1>
@@ -26,6 +31,13 @@
             <option value="Copley">Copley city schools</option>
         </select></p>
     <p><input type="submit" name="submit" id="submit" value="submit"></p>
+    <?php
+    if (isset($_GET["error"])) {
+        if ($_GET["error"] == "emptyInput") {
+            echo "<h2> Please fill in all items</h2>";
+        }
+    }
+    ?>
 
 </form>
 </body>
