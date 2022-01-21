@@ -14,7 +14,7 @@
 </head>
 <body>
 <h1>Insert student data</h1>
-<form id="student_information" name="student_information" method="post" action="insertExamplePhp.php">
+<form id="student_information" name="student_information" method="post" action="insertStudents.php">
     <p><label for="first_name">First Name:</label>
         <input type="text" id="first_name" name="first_name"></p>
     <p><label for="last_name">Last Name:</label>

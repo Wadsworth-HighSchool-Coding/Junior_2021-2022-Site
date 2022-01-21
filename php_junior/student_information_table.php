@@ -19,7 +19,7 @@
     </style>
 </head>
 <body>
-<p><a href="./insertExample.php">Insert information here</a></p>
+<p><a href="insertStudentsForm.php">Insert information here</a></p>
 
 <?php
 $dbServername = "localhost";

@@ -4,7 +4,7 @@ $lName = $_POST['last_name'];
 $age = $_POST['age'];
 $hSchool = $_POST['home_school'];
 if (empty($fName) || empty($lName) || empty($age) || empty($hSchool)) {
-    header("location: ./insertExample.php?error=emptyInput");
+    header("location: ./insertStudentsForm.php?error=emptyInput");
 } else {
 
     $dbServername = "localhost";
