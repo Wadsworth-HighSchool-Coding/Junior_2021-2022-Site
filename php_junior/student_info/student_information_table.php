@@ -20,7 +20,7 @@
 </head>
 <body>
 <p><a href="insertStudentsForm.php">Insert information here</a></p>
-<p><a href="insertStudentsForm.php">Update information here</a></p>
+
 
 <?php
 $dbServername = "localhost";
@@ -41,12 +41,17 @@ if ($queryStudents = $conn->query("SELECT * FROM `columns` WHERE 1")) {
     echo "Number of students is: " . $queryStudents->num_rows;
     echo "</caption>";
     echo "<th>";
-    echo "Student ID" . "</th><th>" . "First Name" . "</th><th>" . "Last Name" . "</th><th>" . "Age" . "</th><th>" . "Home School" . "</th>";
+    echo "Student ID" . "</th><th>" . "First Name" . "</th><th>" . "Last Name" . "</th><th>" . "Age" . "</th><th>" . "Home School" . "</th><th>" . "Update Record" . "</th>";
     echo "</th>";
     while ($rows = $queryStudents->fetch_assoc()) {
         echo "<tr>";
         echo "<td>";
-        echo "{$rows['studentID']}" . "</td><td>" . "{$rows['first_name']}" . "</td><td>" . "{$rows['last_name']}" . "</td><td>" . "{$rows['age']}" . "</td><td>" . "{$rows['home_school']}" . "</td>";
+        echo "{$rows['studentID']}" . "</td>
+        <td>" . "{$rows['first_name']}" . "</td>
+        <td>" . "{$rows['last_name']}" . "</td>
+        <td>" . "{$rows['age']}" . "</td>
+        <td>" . "{$rows['home_school']}" . "</td>
+        <td>" . "<a href='updateForm.php?ID={$rows['studentID']}'>update</a>" . "</td>";
         echo "</td>";
         echo "</tr>";
     }
