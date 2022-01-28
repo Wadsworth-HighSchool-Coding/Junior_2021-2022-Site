@@ -23,6 +23,11 @@
 
 
 <?php
+if (isset($_GET["error"])) {
+    if ($_GET["error"] == "IDempty") {
+        echo "<p><b>Error pleas try clicking update again</b></p>";
+    }
+}
 $dbServername = "localhost";
 $dbUsername = "root";
 $dbPassword = "";
@@ -56,6 +61,7 @@ if ($queryStudents = $conn->query("SELECT * FROM `columns` WHERE 1")) {
         echo "</tr>";
     }
     echo "</table>";
+
 }
 
 
