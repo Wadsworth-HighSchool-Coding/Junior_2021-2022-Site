@@ -57,6 +57,7 @@
             var setValue = "<?php echo $hSchool?>";
 
             //more scalable loop
+            //loops though all values of x and is equal to x.options[i] for each iteration
             for (const x1 of x) {
                 if (x1.value == setValue) {
                     document.getElementById("home_school").value = x1.value;
