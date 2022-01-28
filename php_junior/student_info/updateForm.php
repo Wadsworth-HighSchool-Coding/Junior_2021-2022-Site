@@ -12,9 +12,7 @@
             margin: auto;
         }
     </style>
-</head>
-<body>
-<div class="content">
+
     <?php
     if (isset($_GET["ID"])) {
         $findID = $_GET['ID'];
@@ -54,6 +52,20 @@
 
 
     ?>
+    <script>function getSchool() {
+            var x = document.getElementById("home_school");
+            var setValue = "<?php echo $hSchool?>";
+
+            //more scalable loop
+            for (const x1 of x) {
+                if (x1.value == setValue) {
+                    document.getElementById("home_school").value = x1.value;
+                }
+            }
+        }</script>
+</head>
+<body onload="getSchool();">
+<div class="content">
     <h1>Update student data</h1>
     <form id="student_information" name="student_information" method="post" action="insertStudents.php">
         <p><label for="first_name">First Name:</label>
@@ -65,7 +77,7 @@
             <input type="text" id="age" name="age" value="<?php echo $age ?>"></p>
 
         <p><label for="home_school">Home school:</label>
-            <select name="home_school" id="home_school" value="<?php echo $hSchool ?>">
+            <select name="home_school" id="home_school">
                 <option value="Barberton">Barberton city schools</option>
                 <option value="Wadsworth">Wadsworth city schools</option>
                 <option value="Norton">Norton city schools</option>
