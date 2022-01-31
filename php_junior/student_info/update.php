@@ -1,5 +1,5 @@
 <?php
-if (isset($_POST['ID'])) {
+if (isset($_POST['ID']) || isset($_POST['first_name']) || isset($_POST['last_name']) || isset($_POST['age']) || isset($_POST['home_school'])) {
     $ID = $_POST['ID'];
     $fName = $_POST['first_name'];
     $lName = $_POST['last_name'];
