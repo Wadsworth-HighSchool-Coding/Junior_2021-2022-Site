@@ -19,18 +19,10 @@
                 if (x.options[i].value == setValue) {
                     index = i;
                 }
-                //alert(x.options[i].value);
             }
 
-            //same as above just more scalable
-            // for (const x1 of x) {
-            //     index = x.options[x1] == setValue?x1.options[x1]:setValue;
-            //     if(x1.value == setValue)
-            //     {
-            //         index = x1;
-            //     }
-            // }
             alert(index);
+            document.getElementById("home_school").selectedIndex = index;
         }
     </script>
 </head>

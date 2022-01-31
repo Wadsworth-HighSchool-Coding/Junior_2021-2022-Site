@@ -14,6 +14,11 @@
     </style>
 
     <?php
+    if (isset($_GET["error"])) {
+        if ($_GET["error"] == "IDempty") {
+            echo "<p><b>Error failed to update record</b></p>";
+        }
+    }
     if (isset($_GET["ID"])) {
         $findID = $_GET['ID'];
 
@@ -39,9 +44,7 @@
                 $lName = $rows['last_name'];
                 $age = $rows['age'];
                 $hSchool = $rows['home_school'];
-
             }
-
         }
 
 
@@ -68,7 +71,8 @@
 <body onload="getSchool();">
 <div class="content">
     <h1>Update student data</h1>
-    <form id="student_information" name="student_information" method="post" action="insertStudents.php">
+    <form id="student_information" name="student_information" method="post" action="update.php">
+        <input name="ID" ID="ID" type="hidden" value="<?php echo $findID ?>">
         <p><label for="first_name">First Name:</label>
             <input type="text" id="first_name" name="first_name" value="<?php echo $fName ?>"></p>
         <p><label for="last_name">Last Name:</label>

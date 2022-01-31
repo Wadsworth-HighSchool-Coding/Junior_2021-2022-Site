@@ -28,6 +28,14 @@ if (isset($_GET["error"])) {
         echo "<p><b>Error pleas try clicking update again</b></p>";
     }
 }
+if (isset($_GET["status"])) {
+    if ($_GET["status"] == "updated") {
+        echo "<p><b>Record updated</b></p>";
+    }
+    if ($_GET["status"] == "failed") {
+        echo "<p><b>Record failed to updated</b></p>";
+    }
+}
 $dbServername = "localhost";
 $dbUsername = "root";
 $dbPassword = "";
