@@ -65,7 +65,7 @@ if ($queryStudents = $conn->query("SELECT * FROM `columns` WHERE 1")) {
     echo "Number of students is: " . $queryStudents->num_rows;
     echo "</caption>";
     echo "<th>";
-    echo "Student ID" . "</th><th>" . "First Name" . "</th><th>" . "Last Name" . "</th><th>" . "Age" . "</th><th>" . "Home School" . "</th><th>" . "Update Record" . "</th>";
+    echo "Delete" . "</th><th>" . "Student ID" . "</th><th>" . "First Name" . "</th><th>" . "Last Name" . "</th><th>" . "Age" . "</th><th>" . "Home School" . "</th><th>" . "Update Record" . "</th>";
     echo "</th>";
     while ($rows = $queryStudents->fetch_assoc()) {
         echo "<tr>";
