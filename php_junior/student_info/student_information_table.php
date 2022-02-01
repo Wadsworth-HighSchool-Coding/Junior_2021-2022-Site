@@ -17,6 +17,14 @@
             margin-right: auto;
         }
     </style>
+    <script>
+        function confirmDelete(ID) {
+            let check = confirm("Are you sure you want to delete this entry");
+            if (check) {
+                location.href = "delete_student.php?ID=" + ID;
+            }
+        }
+    </script>
 </head>
 <body>
 <p><a href="insertStudentsForm.php">Insert information here</a></p>
@@ -25,7 +33,7 @@
 <?php
 if (isset($_GET["error"])) {
     if ($_GET["error"] == "IDempty") {
-        echo "<p><b>Error pleas try clicking update again</b></p>";
+        echo "<p><b>Error pleas try again</b></p>";
     }
 }
 if (isset($_GET["status"])) {
@@ -34,6 +42,9 @@ if (isset($_GET["status"])) {
     }
     if ($_GET["status"] == "failed") {
         echo "<p><b>Record failed to updated</b></p>";
+    }
+    if ($_GET["status"] == "deleted") {
+        echo "<p><b>Record successfully deleted</b></p>";
     }
 }
 $dbServername = "localhost";
@@ -58,6 +69,9 @@ if ($queryStudents = $conn->query("SELECT * FROM `columns` WHERE 1")) {
     echo "</th>";
     while ($rows = $queryStudents->fetch_assoc()) {
         echo "<tr>";
+        echo "<td>";
+        echo "<input id = 'delete' type='button' name='delete' value='Delete' onclick='confirmDelete(" . $rows['studentID'] . ")'>";
+        echo "</td>";
         echo "<td>";
         echo "{$rows['studentID']}" . "</td>
         <td>" . "{$rows['first_name']}" . "</td>
