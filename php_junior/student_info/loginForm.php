@@ -12,6 +12,19 @@
             margin: auto;
         }
     </style>
+    <script>
+        function checkBlanks() {
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+            if (username == "" || password == "") {
+                alert("Please fill in all text boxes");
+                return false;
+            } else {
+                return true;
+            }
+        }
+
+    </script>
 </head>
 <body>
 <div class="content">
@@ -22,13 +35,15 @@
         switch ($_GET['INFO']) {
             case "unkownUser":
                 echo "<h2>Incorrect username or password</h2>";
+                break;
             case "PleaseLogIn":
                 echo "<h2>Please login before visiting other pages</h2>";
+                break;
 
         }
     }
     ?>
-    <form action="validateUser.php" type="submit" method="post" name="form1">
+    <form type="submit" method="post" name="form1" action="validateUser.php" onsubmit="return checkBlanks()">
         <p>
 
             <label for="username">Username: </label>
