@@ -1,3 +1,6 @@
+<?php
+require 'loginCheck.php';
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -28,7 +31,7 @@
 </head>
 <body>
 <p><a href="insertStudentsForm.php">Insert information here</a></p>
-
+<p><a href="logout.php">Logout</a></p>
 
 <?php
 if (isset($_GET["error"])) {

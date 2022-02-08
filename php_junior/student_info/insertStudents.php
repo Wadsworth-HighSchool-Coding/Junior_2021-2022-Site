@@ -1,4 +1,8 @@
 <?php
+require 'loginCheck.php';
+?>
+
+<?php
 $fName = $_POST['first_name'];
 $lName = $_POST['last_name'];
 $age = $_POST['age'];

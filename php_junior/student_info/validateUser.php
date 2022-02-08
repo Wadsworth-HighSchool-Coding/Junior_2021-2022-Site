@@ -1,3 +1,4 @@
+
 <?php
 session_start();
 if (isset($_POST['username']) && isset($_POST['password'])) {
@@ -20,9 +21,12 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
     if ($query1 = $conn->query($queryString)) {
         echo "\nReturned rows are: " . $query1->num_rows;
         if ($query1->num_rows == 1) {
+            $_SESSION["LOGINCHECK"] = 1;
             header("location:student_information_table.php");
         } else {
-            echo "Error: user not found";
+            header("Location:./loginForm.php?INFO=unkownUser");
         }
     }
+} else {
+    header("Location:./loginForm.php?INFO=unkownUser");
 }
