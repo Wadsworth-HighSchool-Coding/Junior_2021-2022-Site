@@ -28,7 +28,7 @@
 </head>
 <body>
 <div class="content">
-    <h1>Login</h1>
+    <h1>Login or <a href="createAccountForm.php">Create Account</a></h1>
     <?php
     if (isset($_GET['INFO'])) {
         //echo $_GET['INFO'];
