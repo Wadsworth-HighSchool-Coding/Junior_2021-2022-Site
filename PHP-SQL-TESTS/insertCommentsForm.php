@@ -20,26 +20,29 @@ require 'loginCheck.php';
             margin: auto;
         }
     </style>
+    <script>
+        function checkBlanks() {
+            var comment = document.getElementById("comment").value;
+            if (comment == "") {
+                alert("Please fill in all text boxes");
+                return false;
+            } else {
+                return true;
+            }
+        }
+    </script>
 </head>
 <body>
 <div class="content">
-    <h1>Insert student data</h1>
-    <form id="student_information" name="student_information" method="post" action="insertComments.php">
-        <p><label for="first_name">First Name:</label>
-            <input type="text" id="first_name" name="first_name"></p>
-        <p><label for="last_name">Last Name:</label>
-            <input type="text" id="last_name" name="last_name"></p>
+    <h1>Insert comment</h1>
+    <form id="comments" name="comments" method="post" action="insertComments.php" onsubmit="return checkBlanks()">
 
-        <p><label for="age">Age:</label>
-            <input type="text" id="age" name="age"></p>
+        <p><label for="comment" >comment:</label>
+            <textarea name="comment">
+            </textarea>
+        </p>
 
-        <p><label for="home_school">Home school:</label>
-            <select name="home_school" id="home_school">
-                <option value="Barberton">Barberton city schools</option>
-                <option value="Wadsworth">Wadsworth city schools</option>
-                <option value="Norton">Norton city schools</option>
-                <option value="Copley">Copley city schools</option>
-            </select></p>
+
         <p><input type="submit" name="submit" id="submit" value="submit"></p>
         <?php
         if (isset($_GET["error"])) {

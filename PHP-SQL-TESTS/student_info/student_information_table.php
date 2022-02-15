@@ -30,7 +30,7 @@ require 'loginCheck.php';
     </script>
 </head>
 <body>
-<p><a href="insertCommentsForm.php">Write a comment here</a></p>
+<p><a href="insertStudentsForm.php">Insert information here</a></p>
 <p><a href="logout.php">Logout</a></p>
 
 <?php
@@ -53,7 +53,7 @@ if (isset($_GET["status"])) {
 $dbServername = "localhost";
 $dbUsername = "root";
 $dbPassword = "";
-$dbName = "php_test";
+$dbName = "example_1_20.student_information";
 
 $conn = mysqli_connect($dbServername, $dbUsername, $dbPassword, $dbName);
 
@@ -61,27 +61,27 @@ if ($conn == false) {
     die('connection failed:' . mysqli_connect_error);
 }
 
-if ($comments = $conn->query("SELECT * FROM `comments` WHERE 1")) {
+if ($queryStudents = $conn->query("SELECT * FROM `columns` WHERE 1")) {
 
     echo "<table border='1'>";
     echo "<caption>";
-    echo "Number of comments is: " . $comments->num_rows;
+    echo "Number of students is: " . $queryStudents->num_rows;
     echo "</caption>";
     echo "<th>";
-    echo "ID" . "</th><th>" . "user" . "</th><th>" . "comment" . "</th>";
+    echo "Delete" . "</th><th>" . "Student ID" . "</th><th>" . "First Name" . "</th><th>" . "Last Name" . "</th><th>" . "Age" . "</th><th>" . "Home School" . "</th><th>" . "Update Record" . "</th>";
     echo "</th>";
-    while ($rows = $comments->fetch_assoc()) {
+    while ($rows = $queryStudents->fetch_assoc()) {
         echo "<tr>";
         echo "<td>";
         echo "<input id = 'delete' type='button' name='delete' value='Delete' onclick='confirmDelete(" . $rows['studentID'] . ")'>";
         echo "</td>";
         echo "<td>";
-        echo "{$rows['ID']}" . "</td>
-        <td>" . "{$rows['username']}" . "</td>
-        <td>" . "{$rows['comment']}" . "</td>";
-        if($rows['username'] == $_SESSION["username"]){
-            echo "<td>" . "<a href='updateForm.php?ID={$rows['studentID']}'>update</a>" . "</td>";
-        }
+        echo "{$rows['studentID']}" . "</td>
+        <td>" . "{$rows['first_name']}" . "</td>
+        <td>" . "{$rows['last_name']}" . "</td>
+        <td>" . "{$rows['age']}" . "</td>
+        <td>" . "{$rows['home_school']}" . "</td>
+        <td>" . "<a href='updateForm.php?ID={$rows['studentID']}'>update</a>" . "</td>";
         echo "</td>";
         echo "</tr>";
     }
