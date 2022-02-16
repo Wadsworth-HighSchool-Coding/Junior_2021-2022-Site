@@ -53,7 +53,7 @@ if ($conn == false) {
     die('connection failed:' . mysqli_connect_error);
 }
 
-if ($comments = $conn->query("SELECT * FROM `comments`")) {
+if ($comments = $conn->query("SELECT * FROM `comments` ORDER BY ID DESC ")) {
 
     echo "<table border='1'>";
     echo "<caption>";

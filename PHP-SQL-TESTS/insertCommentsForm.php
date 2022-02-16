@@ -20,25 +20,27 @@ require 'loginCheck.php';
             margin: auto;
         }
     </style>
+
     <script>
         function checkBlanks() {
             var comment = document.getElementById("comment").value;
-            if (comment == "") {
+            if(/\S/.test(comment)) {
+                return true;
+            }else{
                 alert("Please fill in all text boxes");
                 return false;
-            } else {
-                return true;
             }
+            return false;
         }
     </script>
 </head>
 <body>
 <div class="content">
     <h1>Insert comment</h1>
-    <form id="comments" name="comments" method="post" action="insertComments.php" onsubmit="return checkBlanks()">
+    <form id="comments" name="comments" method="post" action="insertComments.php" onsubmit="return checkBlanks();">
 
         <p><label for="comment" >comment:</label>
-            <textarea name="comment">
+            <textarea name="comment" id="comment" value="">
             </textarea>
         </p>
 
